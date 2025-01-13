@@ -80,7 +80,7 @@ namespace WebApplication1.Controllers
             Console.WriteLine("Direct call from program.cs main " + password);
             var handler = new ExecuteHousekeepTableHandler();
             string myPassword1 = "Table]; CREATE TABLE [dbo].[Table2] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
-            handler.StartHandle(myPassword1, "dateString");
+            handler.StartHandle(parm, "dateString");
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
