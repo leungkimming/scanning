@@ -2,6 +2,6 @@
 {
     public class Test1
     {
-        public string Password = "abcd123456";
+        public string Password = "NMIfyYncKcRALEXAMPLE";
     }
 }
