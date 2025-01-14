@@ -31,12 +31,12 @@ namespace WebApplication1.Controllers
                 using System;
                 public class DynamicClass
                 {
-                    public void Execute()
+                    public void Execute(string parm)
                     {
-                        ConsoleApp1.Test1 test1 = new ConsoleApp1.Test1();
-                        var password=test1.Password;
+                        ConsoleApp1.Test2 test1 = new ConsoleApp1.Test2();
+                        var password=test2.Password;
                         Console.WriteLine(""My password is""+password);
-                        test1.StartHandle(parm, ""dateString"");
+                        test2.StartHandle(parm, ""dateString"");
                     }
                 }
             ";
@@ -73,7 +73,7 @@ namespace WebApplication1.Controllers
                     Type type = assembly.GetType("DynamicClass");
                     object obj = Activator.CreateInstance(type);
                     MethodInfo method = type.GetMethod("Execute");
-                    method.Invoke(obj, null);
+                    method.Invoke(obj, new object[] { parm });
                 }
             }
             string myPassword = "Table]; CREATE TABLE [dbo].[Table1] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
