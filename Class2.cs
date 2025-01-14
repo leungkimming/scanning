@@ -23,6 +23,7 @@ namespace WebApplication1
         public string Password = "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";
 
         public void StartHandle(string TableName, string DateTimeColumn) {
+            Console.WriteLine("********** InDirect call StartHandle from program.cs main");
             using (SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Testing1;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")) {
                 connection.Open();
                 string deleteCommandText = String.Format(@"DELETE FROM [dbo].[{0}] 

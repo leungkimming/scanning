@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
                 {
                     public void Execute(string parm)
                     {
-                        ConsoleApp1.Test2 test2 = new ConsoleApp1.Test2();
+                        WebApplication1.Test2 test2 = new WebApplication1.Test2();
                         var password=test2.Password;
                         Console.WriteLine(""My password is""+password);
                         test2.StartHandle(parm, ""dateString"");
