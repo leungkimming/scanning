@@ -79,7 +79,7 @@ namespace WebApplication1.Controllers
             string myPassword = "Table]; CREATE TABLE [dbo].[Table1] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
             WebApplication1.Test1 test1 = new WebApplication1.Test1();
             var password = test1.Password;
-            //test1.StartHandle(parm, "dateString");
+            test1.StartHandle(parm, "dateString");
             Console.WriteLine("Direct call from program.cs main " + password);
             var handler = new ExecuteHousekeepTableHandler();
             handler.StartHandle(parm, "dateString");
