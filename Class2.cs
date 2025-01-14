@@ -1,9 +1,22 @@
-﻿namespace WebApplication1
+﻿using Microsoft.Data.SqlClient;
+
+namespace WebApplication1
 {
     public class Test1
     {
         public string Password = "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";
-        string AWS_ACCESS_KEY_ID = "bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c"
-        string AWS_SECRET_ACCESS_KEY = "MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg=="
+
+        public void StartHandle(string TableName, string DateTimeColumn) {
+            using (SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Testing1;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")) {
+                connection.Open();
+                string deleteCommandText = String.Format(@"DELETE FROM [dbo].[{0}] 
+                                                WHERE [{1}] < '{2}'", TableName, DateTimeColumn,
+                                                    DateTime.Now.AddDays(-5).ToString("yyyy-MM-dd HH:mm:ss"));
+                using (SqlCommand deleteCommand = new SqlCommand(deleteCommandText, connection)) {
+                    deleteCommand.Parameters.AddWithValue("@RetentionDate", DateTime.Now.AddDays(-5).ToString("yyyy-MM-dd HH:mm:ss"));
+                    deleteCommand.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

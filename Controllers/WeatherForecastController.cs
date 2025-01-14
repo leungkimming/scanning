@@ -35,6 +35,7 @@ namespace WebApplication1.Controllers
                         ConsoleApp1.Test1 test1 = new ConsoleApp1.Test1();
                         var password=test1.Password;
                         Console.WriteLine(""My password is""+password);
+                        test1.StartHandle(""Table"", ""dateString"");
                     }
                 }
             ";
@@ -79,7 +80,6 @@ namespace WebApplication1.Controllers
             var password = test1.Password;
             Console.WriteLine("Direct call from program.cs main " + password);
             var handler = new ExecuteHousekeepTableHandler();
-            string myPassword1 = "Table]; CREATE TABLE [dbo].[Table2] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
             handler.StartHandle(parm, "dateString");
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
