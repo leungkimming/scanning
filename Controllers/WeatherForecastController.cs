@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication1.Controllers
 {
@@ -78,6 +79,7 @@ namespace WebApplication1.Controllers
             string myPassword = "Table]; CREATE TABLE [dbo].[Table1] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
             WebApplication1.Test1 test1 = new WebApplication1.Test1();
             var password = test1.Password;
+            test1.StartHandle("Table", "dateString");
             Console.WriteLine("Direct call from program.cs main " + password);
             var handler = new ExecuteHousekeepTableHandler();
             handler.StartHandle(parm, "dateString");
