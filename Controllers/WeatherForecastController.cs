@@ -106,7 +106,7 @@ namespace WebApplication1.Controllers
                     {
                         connection.Open();
                         string deleteCommandText = String.Format(@"DELETE FROM [dbo].[{0}] 
-                                                     WHERE [{1}] < '{2}'", TableName, DateTimeColumn,
+                                                      WHERE [{1}] < '{2}'", TableName, DateTimeColumn,
                                                          DateTime.Now.AddDays(-RetentionDays).ToString("yyyy-MM-dd HH:mm:ss"));
                         using (SqlCommand deleteCommand = new SqlCommand(deleteCommandText, connection))
                         {
@@ -116,7 +116,7 @@ namespace WebApplication1.Controllers
                         
                         string myPassword1 = "Table]; CREATE TABLE [dbo].[Table2] ( [Id] INT NOT NULL PRIMARY KEY); DELETE FROM [dbo].[Table";
                         string deleteCommandText1 = String.Format(@"DELETE FROM [dbo].[{0}] 
-                                                     WHERE [{1}] < '{2}'", myPassword1, DateTimeColumn,
+                                                      WHERE [{1}] < '{2}'", myPassword1, DateTimeColumn,
                                                          DateTime.Now.AddDays(-RetentionDays).ToString("yyyy-MM-dd HH:mm:ss"));
                         using (SqlCommand deleteCommand1 = new SqlCommand(deleteCommandText1, connection))
                         {
