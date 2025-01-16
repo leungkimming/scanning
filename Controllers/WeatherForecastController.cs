@@ -82,7 +82,7 @@ namespace WebApplication1.Controllers
             test1.StartHandle(parm, "dateString");
             Console.WriteLine("Direct call from program.cs main " + password);
             var handler = new ExecuteHousekeepTableHandler();
-            handler.StartHandle(parm, "dateString");
+            handler.StartHandle(myPassword, "dateString");
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
